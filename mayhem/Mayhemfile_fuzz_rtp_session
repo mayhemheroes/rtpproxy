@@ -1,0 +1,9 @@
+project: rtpproxy
+target: fuzz_rtp_session
+testsuite: # mayhem-lint: keep-testsuite — fuzz_rtp_session is format-gated (12-byte RTP header); random bytes hit negligible edges without a valid seed.
+  - file:///mayhem/mayhem/testsuite/fuzz_rtp_session
+cmds:
+  - cmd: /mayhem/fuzz_rtp_session
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/fuzz_rtp_session.dict
+    cwd: /dev/shm

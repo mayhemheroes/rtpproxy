@@ -1,0 +1,5 @@
+project: rtpproxy
+target: fuzz_rtp_parser
+cmds:
+  - cmd: /mayhem/fuzz_rtp_parser
+    libfuzzer: true

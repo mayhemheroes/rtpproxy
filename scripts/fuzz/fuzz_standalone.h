@@ -60,8 +60,7 @@ main(int argc, char *argv[])
     LLVMFuzzerTestOneInput(cp, size);
     return (0);
 }
-#else
-const char *__asan_default_options() {
-  return "verbosity=0";
-}
 #endif /* FUZZ_STANDALONE */
+/* __asan_default_options is defined in mayhem/asan_options.c (linked via build.sh)
+ * so it can use a strong symbol that wins even with --whole-archive; the old weak
+ * definition here ("verbosity=0") did not disable LeakSanitizer and conflicted. */

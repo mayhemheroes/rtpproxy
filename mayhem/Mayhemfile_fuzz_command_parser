@@ -1,0 +1,6 @@
+project: rtpproxy
+target: fuzz_command_parser
+cmds:
+  - cmd: /mayhem/fuzz_command_parser
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/fuzz_command_parser.dict
